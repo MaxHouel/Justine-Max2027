@@ -24,18 +24,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --encre:#5C2A33;        /* texte principal, bordeaux fonce */
+    --encre:#722F38;        /* texte principal, bordeaux fonce */
     --papier:#E7F0F8;       /* fond de toute la page, bleu ciel pastel */
     --papier-creux:#D8E7F3; /* bleu un peu plus soutenu : accueil et infos pratiques */
     --foret:#D8E7F3;        /* meme teinte, conserve pour compatibilite */
-    --foret-clair:#8E5560;  /* texte secondaire, bordeaux moyen */
-    --clair-doux:#8E5560;   /* texte discret */
+    --foret-clair:#96505A;  /* texte secondaire, bordeaux moyen */
+    --clair-doux:#96505A;   /* texte discret */
     --trait:#A9C6DC;        /* traits decoratifs : herbes dessinees */
-    --sauge:#C6A2A9;        /* filets et bordures */
-    --prune:#7C3742;        /* accents et fond du pied de page */
+    --sauge:#CDA1A6;        /* filets et bordures */
+    --prune:#722F38;        /* accents et fond du pied de page */
     --ivoire:#F7FBFD;       /* fond des champs, texte sur le pied de page */
-    --texte-bandeau:#5C2A33;/* texte sur les zones bleutees */
-    --rose-clair:#E7C9CE;   /* texte discret sur le pied de page */
+    --texte-bandeau:#722F38;/* texte sur les zones bleutees */
+    --rose-clair:#EECFD0;   /* texte discret sur le pied de page */
 
     --serif:"Fraunces",Georgia,serif;
     --sans:"Karla",system-ui,-apple-system,sans-serif;
@@ -103,6 +103,29 @@
   @keyframes lever{to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.lever{animation:none;opacity:1;transform:none}}
 
+  /* ---------- Photos de l'accueil ---------- */
+
+  .photos{display:flex;justify-content:center;gap:1rem;margin-top:2.5rem}
+  .photo{
+    margin:0;padding:.5rem .5rem 1.5rem;
+    background:#FFFDFB;border-radius:2px;
+    box-shadow:0 8px 22px rgba(114,47,56,.2);
+    width:clamp(98px,28vw,136px);
+  }
+  .photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--papier-creux)}
+  .photo--1{transform:rotate(-6deg)}
+  .photo--2{transform:rotate(4deg)}
+  .photo--3{transform:rotate(8deg)}
+
+  /* Sur grand ecran, elles se posent de part et d'autre des prenoms */
+  @media (min-width:64rem){
+    .photos{display:block;margin:0}
+    .photo{position:absolute;width:clamp(168px,15.5vw,228px)}
+    .photo--1{left:4%;top:9%}
+    .photo--2{left:10%;top:57%}
+    .photo--3{right:4%;top:14%}
+  }
+
   /* ---------- Navigation ---------- */
 
   .nav{position:sticky;top:0;z-index:10;background:var(--papier);border-bottom:1px solid var(--papier-creux)}
@@ -130,14 +153,14 @@
     width:8px;height:8px;border-radius:50%;background:var(--prune);
   }
   .moment__heure{
-    font-family:var(--serif);font-size:1.75rem;font-weight:300;
+    font-family:var(--serif);font-size:1.75rem;line-height:1.05;font-weight:300;
     color:var(--prune);display:block;line-height:1;
   }
   .moment__titre{font-size:1.375rem;margin:.5rem 0 .35rem}
   .moment p{margin:0;max-width:52ch;color:var(--foret-clair)}
 
   @media (min-width:46rem){
-    .moment{display:grid;grid-template-columns:7rem 1fr;column-gap:2rem;padding-left:2.5rem}
+    .moment{display:grid;grid-template-columns:8.5rem 1fr;column-gap:2rem;padding-left:2.5rem}
     .moment__heure{padding-top:.15rem}
     .moment__titre{margin-top:0}
   }
@@ -274,6 +297,14 @@
     <span class="lieu">Maison Houël, Achères-la-Forêt</span>
   </p>
 
+
+  <div class="photos">
+    <!-- Remplacez le src par le chemin de vos photos, par exemple src="photos/photo-1.jpg" -->
+    <figure class="photo photo--1"><img src="data:image/photo-1.jpeg" alt=""></figure>
+    <figure class="photo photo--2"><img src="data:image/photo-2.jpeg" alt=""></figure>
+    <figure class="photo photo--3"><img src="data:image/photo-3.jpeg" alt=""></figure>
+  </div>
+
   <svg class="hero__herbes" viewBox="0 0 1200 170" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
       <path d="M60 170C58 120 70 84 96 54"/><path d="M96 54c-14 6-20 18-19 30M96 54c2 14-4 25-15 32"/>
@@ -325,10 +356,12 @@
 
     <ol class="deroule">
       <li class="moment">
-        <span class="moment__heure">15h00</span>
+        <span class="moment__heure">15h30</span>
         <div>
           <h3 class="moment__titre">Accueil des invités</h3>
-          <p>Rendez-vous au 23 Chemin du Colombier 77760 Achères la forêt. Fin juillet il fera chaud : un rafraîchissement vous attendra à l'ombre.</p>
+          <p>Rendez-vous au 23 Chemin du Colombier,<br>
+	     Achères-la-forêt, 77760.<br>
+	     Fin juillet il fera chaud : un rafraîchissement vous attendra à l'ombre.</p>
         </div>
       </li>
       <li class="moment">
@@ -342,21 +375,28 @@
         <span class="moment__heure">17h00</span>
         <div>
           <h3 class="moment__titre">Vin d'honneur</h3>
-          <p>Toujours dans le jardin, profitez du buffet végétarien et des activités proposées pour les petits et grands enfants</p>
+          <p>Toujours dans le jardin, profitez du buffet végétarien et des activités proposées pour les petits et grands enfants.</p>
         </div>
       </li>
       <li class="moment">
-        <span class="moment__heure">20h00</span>
+        <span class="moment__heure">19h00</span>
         <div>
           <h3 class="moment__titre">Dîner</h3>
-          <p>Sous la tente, mais toujours dans le jardin finalement ! Le plan de table sera affiché à l'entrée.</p>
+          <p>Au menu : un plan convivial comme à la maison !</p>
         </div>
       </li>
       <li class="moment">
-        <span class="moment__heure">23h00</span>
+        <span class="moment__heure">Pas d'heure parce que ça ne plait pas à Justine</span>
         <div>
           <h3 class="moment__titre">L'heure de taper du pied !</h3>
           <p>Fêtons l'amour jusqu'au bout de la nuit !</p>
+        </div>
+      </li>
+      <li class="moment">
+        <span class="moment__heure">Dimanche<br>11h00</span>
+        <div>
+          <h3 class="moment__titre">Brunch du lendemain</h3>
+          <p>Pour ceux qui tiennent encore debout, on se retrouve le dimanche 1er août autour d'un brunch dans le jardin. Merci d'indiquer votre présence dans le formulaire.</p>
         </div>
       </li>
     </ol>
@@ -370,11 +410,11 @@
 
       <div class="fiches">
         <div class="fiche">
-          <h3>Le lieu</h3>
+          <h3>Lieu</h3>
           <p>
             Maison Houël<br>
             23 chemin du Colombier<br>
-            77760 Achères-la-Forêt
+            Achères-la-Forêt, 77760
           </p>
           <p><a class="lien" href="https://maps.app.goo.gl/a3KCoNiVVKKjZyLb8">Ouvrir dans Google Maps</a></p>
           <p>Possibilité de se garer devant la maison.</p>
@@ -393,8 +433,7 @@
           <h3>Où dormir</h3>
           <ul>
             <li><b>Locations Airbnb</b> — nous avons repéré les logements du coin pour vous (mais on en a peut être oublié) : <a class="lien" href="https://docs.google.com/spreadsheets/d/1lQOf0xhu5aQTU3OjOo0zSWXlu7UXsdLKC6FX4ZujovU/edit?usp=sharing">voir la liste</a>.</li>
-            <li><b>Hôtels</b> — plusieurs options autour de Fontainebleau, mais il faudra prendre la voiture.</li>
-            <li><b>Option la plus proche</b> — <a class="lien" href="https://all.accor.com/booking/en/novotel/hotel/0384">Novotel Ury Fontainebleau</a>.</li>
+            <li><b>Hôtels</b> — plusieurs options autour de Fontainebleau, mais il faudra prendre la voiture. <a class="lien" href="https://all.accor.com/booking/en/novotel/hotel/0384">Novotel Ury Fontainebleau</a></li>
 
             <li>Fin juillet, la région de Fontainebleau se remplit vite : réservez tôt !</li>
           </ul>
@@ -403,7 +442,7 @@
         <div class="fiche">
           <h3>Bon à savoir</h3>
           <ul>
-            <li><b>Tenue</b> — élégante et champêtre. Journée en extérieur en plein été : talons déconseillés.</li>
+            <li><b>Tenue</b> — élégante, colorée et champêtre. Journée en extérieur en plein été il risque de faire chaud !.</li>
             <!-- Quand la cagnotte existe, remettre : <li><b>Cadeaux</b> — tout est expliqué <a class="lien" href="#cadeaux">un peu plus bas</a>.</li> -->
             <li><b>Cadeaux</b> — votre présence nous suffit ; une urne sera à disposition sur place.</li>
             <li><b>Une question ?</b> — Vous pouvez m'écrire à <a class="lien" href="mailto:maximilien.houel@gmail.com">maximilien.houel@gmail.com</a></li>
@@ -483,6 +522,15 @@
             </div>
           </div>
         </div>
+
+        <fieldset class="volet">
+          <legend style="font-family:var(--serif);font-size:1.25rem;font-weight:400;margin-bottom:.35rem">Serez-vous du brunch du lendemain ?</legend>
+          <p class="aide" style="margin-bottom:1.25rem">Dimanche 1er août à 11h00, dans le jardin.</p>
+          <div class="choix">
+            <label><input type="radio" name="brunch" value="Oui"> Oui, on reste</label>
+            <label><input type="radio" name="brunch" value="Non"> Non, on repart</label>
+          </div>
+        </fieldset>
 
         <div class="volet">
           <h3>Des enfants vous accompagnent ?</h3>
@@ -617,11 +665,15 @@
 
     const total = vient ? 1 + (conjoint ? 1 : 0) + enfants.length : 0;
 
+    const choixBrunch = form.querySelector('input[name="brunch"]:checked');
+    const brunch = vient && choixBrunch ? choixBrunch.value : "";
+
     const donnees = new URLSearchParams({
       prenom:   prenom,
       nom:      nom,
       email:    email,
       presence: presence.value,
+      brunch:   brunch,
       conjoint: conjoint,
       enfants:  enfants.join(" ; "),
       nbEnfants: String(enfants.length),
