@@ -277,19 +277,19 @@
 
   /* ---------- Participer ---------- */
 
-  .cadeaux{background:var(--papier-creux);color:var(--encre)}
-  .cadeaux .titre{color:var(--encre)}
-  .cadeaux .chapo{color:var(--clair-doux);max-width:44ch;margin-bottom:3.5rem}
-  .cadeaux .aide{color:var(--foret-clair)}
-  .cadeaux :focus-visible{outline-color:var(--prune)}
+  .cadeaux{background:var(--prune);color:var(--ivoire)}
+  .cadeaux .titre{color:var(--ivoire)}
+  .cadeaux .chapo{color:var(--rose-clair);max-width:44ch;margin-bottom:3.5rem}
+  .cadeaux .aide{color:var(--rose-clair)}
+  .cadeaux :focus-visible{outline-color:var(--ivoire)}
 
   .bouton{
-    display:inline-block;background:var(--prune);color:var(--papier);
+    display:inline-block;background:var(--ivoire);color:var(--prune);
     text-decoration:none;font-weight:600;padding:.85rem 1.75rem;border-radius:3px;
   }
-  .bouton:hover{background:var(--encre)}
+  .bouton:hover{background:var(--rose-clair)}
 
-  .urne{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--sauge);max-width:54rem}
+  .urne{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.28);max-width:54rem}
 
   /* ---------- Pied ---------- */
 
@@ -361,9 +361,7 @@
   <ul>
     <li><a href="#deroule">Le déroulé</a></li>
     <li><a href="#pratique">Infos pratiques</a></li>
-    <!-- REACTIVER : retirer cette ligne et la ligne de fermeture juste apres
     <li><a href="#cadeaux">Participer</a></li>
-    -->
     <li><a href="#reponse">Répondre</a></li>
   </ul>
 </nav>
@@ -464,8 +462,7 @@
           <h3>Bon à savoir</h3>
           <ul>
             <li><b>Tenue</b> — élégante, colorée et champêtre. Journée en extérieur en plein été il risque de faire chaud !.</li>
-            <!-- Quand la cagnotte existe, remettre : <li><b>Cadeaux</b> — tout est expliqué <a class="lien" href="#cadeaux">un peu plus bas</a>.</li> -->
-            <li><b>Cadeaux</b> — votre présence nous suffit ; une urne sera à disposition sur place.</li>
+            <li><b>Cadeaux</b> — tout est expliqué <a class="lien" href="#cadeaux">un peu plus bas</a>.</li>
             <li><b>Une question ?</b> — Vous pouvez m'écrire à <a class="lien" href="mailto:maximilien.houel@gmail.com">maximilien.houel@gmail.com</a></li>
           </ul>
         </div>
@@ -473,23 +470,17 @@
     </div>
   </section>
 
-  <!-- SECTION EN SOMMEIL, cagnotte pas encore choisie.
-       Pour la remettre : effacer cette ligne, la ligne "FIN DU SOMMEIL" plus bas,
-       les deux lignes de commentaire autour du lien "Participer" dans le menu,
-       puis remplacer [lien de votre cagnotte] par votre adresse.
-
+  <!-- ================= PARTICIPER ================= -->
   <section id="cadeaux" class="cadeaux">
     <div class="enveloppe">
       <h2 class="titre">Participer</h2>
-      <p class="chapo">Votre présence nous suffit. Pour ceux qui veulent tout de même nous gâter, nous mettons de côté pour [notre voyage de noces].</p>
+      <p class="chapo">Votre présence nous suffit. Pour ceux qui veulent tout de même nous gâter, voici le lien vers la cagnotte.</p>
 
-      <p><a class="bouton" href="[lien de votre cagnotte]">Participer à la cagnotte</a></p>
+      <p><a class="bouton" href="https://www.onparticipe.fr/c/bniM9T85">Participer à la cagnotte</a></p>
 
-      <p class="urne aide">Une urne sera aussi à disposition le jour J, pour ceux qui préfèrent le papier.</p>
+      <p class="urne aide">Une urne sera aussi à disposition le jour J.</p>
     </div>
   </section>
-
-  FIN DU SOMMEIL -->
 
   <!-- ================= RSVP ================= -->
   <section id="reponse" class="enveloppe">
